@@ -437,7 +437,7 @@ def _get_instructions_bytes(code, varname_from_oparg=None,
     get_name = None if names is None else names.__getitem__
     labels = set(findlabels(code))
     for start, end, target, _, _ in exception_entries:
-        for i in range(start, end):
+        for _ in range(start, end):
             labels.add(target)
     starts_line = None
     for offset, op, arg in _unpack_opargs(code):
